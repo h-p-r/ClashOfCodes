@@ -35,7 +35,8 @@ if (isset($email) && isset($key) && isset($name))
     // Print a customized message:
     
 		joining_mail($email,$name);
-		$_SESSION['email']=$email;
+        $_SESSION['email']=$email;
+        $_SESSION['name']=$name;
 		$_SESSION['msg']='Your id is activated Successfully';
 		redirect_to('login.php');
 
