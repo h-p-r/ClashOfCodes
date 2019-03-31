@@ -212,8 +212,8 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
                                 $bpos+=$bmove;
                             }
 
-                            file_put_contents($input1,$bpos."\n".$rlen."\n".$newInp11."\n".$newInp12);
-                            file_put_contents($input2,$bpos."\n".$rlen."\n".$newInp21."\n".$newInp22);
+                            file_put_contents($input1,'1'."\n".$bpos."\n".$rlen."\n".$newInp11."\n".$newInp12);
+                            file_put_contents($input2,'2'."\n".$bpos."\n".$rlen."\n".$newInp21."\n".$newInp22);
                             // also remove the initial number from output
                        
                         }
