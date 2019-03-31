@@ -21,7 +21,7 @@ if(isset($_SESSION['email'])&&isset($_SESSION['error'])){
 		if($Squiry=mysqli_query($mysqli,$quiry)){
 ?>
 <div class="page-b" id="select-player">
-<span class="biggest">SELECT Your Opponent to Play with...</span><br><br><br>
+<span class="biggest bcenter">SELECT Your Opponent to Play with...</span><br><br><br>
 <form action="trial-exec.php" method="post">
 
 <select name="player2"  id="opp-list">

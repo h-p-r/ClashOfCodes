@@ -118,7 +118,7 @@ echo '
 
 echo '
 	<script>
-		var timeout=setTimeout("location.reload(true);",3000);
+		var timeout=setTimeout("location.reload(true);",1000);
 	</script>
 ';
 // }
@@ -145,7 +145,7 @@ if($_SESSION['end']) {
 					echo '<span class="win-disp"><br>'.$_SESSION['errorMsg'].'<br>'.$_SESSION['winner'].' <a href="trial-exec.php" style="color:rgb(10, 200, 25);"><b> Wanna Play with other</b></span>';	
 				}
 				else {
-					echo '<span class="win-disp"><br>'.$_SESSION['errorMsg'].'<br>'.$_SESSION['winner'].' Won the Game<a href="trial-exec.php" style="color:rgb(10, 200, 25);"><b> Wanna Play with other</b></span>';
+					echo '<span class="win-disp"><br>'.$_SESSION['errorMsg'].'<br>'.$_SESSION['winner'].' Won the Game<a href="trial-exec.php" style="color:rgb(10, 200, 25);"><b> Wanna Play with other</b></a><br><a href="index.php" style="color:white;"><b>HOME</b></a></span>';
 
 				}
 }

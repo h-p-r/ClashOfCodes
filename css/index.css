@@ -4,7 +4,7 @@ body {
 }
 .page-b {
   width: 80%;
-  height: 55%;
+  height: 60%;
   padding: 10%;
   text-align: center;
   //border:1px solid red;
@@ -44,7 +44,11 @@ body {
 }
 
 .biggest {
-  font-size: 60px;
+  font-size: 30px;
+  margin-left: -100px;
+}
+.bcenter {
+  margin: 0 auto;
 }
 .mid {
   font-size: 30px;
@@ -52,7 +56,7 @@ body {
 .enter {
   position: relative;
   width: 25%;
-  height: 50%;
+  height: 40px;
   cursor: pointer;
   background-color: black;
   //box-shadow:5px 5px white;
@@ -62,8 +66,8 @@ body {
 }
 
 #select-player {
-  background-image: url("../img/yellowjacket_ant_man-wallpaper-1366x768.jpg");
-  background-size: 100% 100%;
+  background-image: url("../img/pattern2.jpeg");
+  background-repeat: repeat;
   color: white;
 }
 #game {
@@ -71,14 +75,14 @@ body {
   background-size: 100% 100%;
 }
 #login-page {
-  background-image: url("../img/Batman-Car-Wallpaper-6.jpg");
-  -moz-transform: scaleX(-1);
+  background-image: url("../img/pattern4.jpeg");
+  /* -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   filter: FlipH;
-  -ms-filter: "FlipH";
-  background-size: 100% 100%;
+  -ms-filter: "FlipH"; */
+  background-repeat: repeat;
 }
 #opp-select {
   background-color: rgb(243, 243, 243);
@@ -95,47 +99,40 @@ body {
   position: relative;
   left: 35%;
   width: 250px;
-  background-image: url("../img/w-2.jpg");
-  background-size: 100% 100%;
+  background-image: url("../img/pattern3.jpeg");
+  background-repeat: repeat;
   box-shadow: 5px 5px gray;
 }
 #login {
-  //padding:2%;
+  padding: 2%;
   position: relative;
-  //border:1px solid black;
   width: 50%;
   height: 100%;
   left: 0;
   text-align: center;
-
-  //opacity:0.7;
 }
 #register {
-  //padding:2%;
   position: relative;
-  //border-left:1px solid white;
   border-left: 1px solid black;
   width: 50%;
   height: 100%;
   right: 0;
   text-align: center;
-  //opacity:0.7;
+}
+.at-end {
+  position: absolute;
+  right: 100px;
 }
 #login-reg {
   padding: 2%;
   position: relative;
-  //border:1px solid black;
-  width: 80%;
-  height: 100%;
+  width: 500px;
+  height: 350px;
   display: flex;
   background-color: rgb(243, 243, 243);
-  //background-color:black;
-  //color:white;
-  //color:black;
-  //left:20%;
   opacity: 0.8;
 }
-.straight {
+.straightt {
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
@@ -166,8 +163,8 @@ body {
   top: 0;
 }
 #f-page {
-  background-image: url("../img/captain_america_vs_iron_man-wallpaper-1366x768.jpg");
-  postersbackground-size: 100% 100%;
+  background-image: url("../img/pattern1.jpeg");
+  background-repeat: repeat;
 }
 #random {
   background-image: url("../img/posters.jpg");
@@ -189,8 +186,8 @@ body {
 }
 #codeSub {
   display: none;
-  background-image: url("../img/new-batman-v-superman-imax-posters_h6v2.1920.jpg");
-  background-size: 100% 100%;
+  background-image: url("../img/pattern1.jpeg");
+  background-repeat: repeat;
 }
 td {
   margin: 0;
@@ -199,7 +196,7 @@ td {
   position: fixed;
   width: 100%;
   left: 0;
-  height: 10%;
+  height: 85px;
   bottom: 0;
   background-color: purple;
   opacity: 0.8;

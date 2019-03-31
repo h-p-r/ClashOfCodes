@@ -62,7 +62,7 @@ if(isset($_POST['code'])){
 </head>
 <body>
 
- <a href="table.php"><span style="color:white; position:fixed; right:7%;top:25%; font-size:1.5em; font-family:cursive" title="Gameboard">Click To See Gameboard</span></a>
+ <a href="table.php"><span style="color:white; position:fixed; right:7%;top:25%; font-size:1.5em; " title="Gameboard">Click To See Gameboard</span></a>
 <div class="page-b" id="f-page">
 <div style="position : fixed; bottom:2%;color :white; margin:0;padding:0;">
 
@@ -70,7 +70,7 @@ Download<a href="GameRules.txt" style="color :white; " download> Game problem St
 Get the<a href="codes/sample.cpp" style="color :white;" download> Sample code Here!!</a>
 </div>
 <a href="logout.inc.php" title="Logout"><img style="position:fixed; top:20; right:20" src="img/logout.png"></a>
-<div style="position:fixed; top:30; right:120; font-family: cursive; font-size: 2em; color: white;">Welcome, <?php echo $_SESSION['name'];?></div>
+<div style="position:fixed; top:30; right:120; font-size: 2em; color: white;">Welcome, <?php echo $_SESSION['name'];?></div>
 
 <div class="center">
 <span class="mid">Let's Enter in <b>Clash Of Codes!!</b></span>
@@ -80,11 +80,11 @@ Get the<a href="codes/sample.cpp" style="color :white;" download> Sample code He
 <div id="codeSub" class="page-a" id="c">
 
 <a href="logout.inc.php" title="Logout"><img style="position:fixed; top:85; right:20" src="img/logout.png"></a>
-<div style="position:fixed; top:110; right:120; font-family: cursive; font-size: 2em; color: white;">Welcome, <?php echo $_SESSION['name'];?></div>
+<div style="position:fixed; top:110; right:120; font-size: 2em; color: white;">Welcome, <?php echo $_SESSION['name'];?></div>
 <span class="biggest small_shadow" style="color:white;">Please Submit your C++ code here... </span><br><br>
 <form method="post" action="index.php" >
 <textarea class="code" name="code" placeholder="Your C++ code"></textarea>	
-<input type="submit"  class="sub_button" value="Submit Code" />
+<input type="submit"  class="btn btn-primary sub_button" value="Submit Code" />
 </form>
 <?php
 	$userid=$_SESSION['email'];

@@ -105,13 +105,13 @@ if(isset($_POST['rname']) &&
 </head>
 <body>
 <div class="page-b" id="login-page" style="display:flex;">
-<div class="straight">
-<span class="biggest small_shadow " style="color:white">Please Login/Register to Fight </span>
+<div class="at-end">
+<span class="biggest bcenter small_shadow " style="color:white">Please Login/Register to Fight </span>
 <div id="login-reg">
 <div id="login">
 <form  action="login.php" method="post">
 <br>
-<span class="straight" ><span class="mid small_shadow "style="margin-left:30%;" >Login</span></span><br><br>
+<span class="straight " ><span class="mid small_shadow " >Login</span></span><br><br>
 <br><br><br>
 <input type="email" name="lemail" placeholder="&nbsp;Email"/><br><br>
 <input type="password" name="lpass" placeholder="&nbsp;Password"/><br><br>
@@ -120,7 +120,7 @@ if(isset($_POST['rname']) &&
 </div>
 <div id="register">
 <br>
-<span class="straight" ><span class="mid small_shadow "style="margin-left:30%;" >Register</span></span><br><br><br>
+<span class="straight" ><span class="mid small_shadow " >Register</span></span><br><br><br>
 <form action="login.php" method="post">
 <input type="text" name="rname" placeholder="&nbsp;Name"/><br><br>
 <input type="text" class="rrll" name="rroll" placeholder="&nbsp;College"/><br>
