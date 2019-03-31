@@ -6,11 +6,7 @@
 <body>
 
 <script src="js/jquery.js"></script>
-<script >
-	$(function(){
 
-	});
-</script>
 
 </body>
 </html>
@@ -19,6 +15,9 @@ session_start();
 require_once('connect_algodb.php');
 //require_once('countdown.php');
 require_once('core.php');
+if((!isset($_SESSION['player2']))) {
+    redirect_to('login.php');
+}
 $_SESSION['winner']=0;
 if((isset($_SESSION['player2']))){
 /*for storing moves*/

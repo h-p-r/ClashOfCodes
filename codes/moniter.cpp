@@ -97,9 +97,9 @@ int main()
 	{
 		move = p2money - p1money;
 		position += move;
-		// fp = fopen("bids.txt", "a");
-		// fprintf(fp, "%d %d %d\n", p1bid, p2bid, move);
-		// fclose(fp);
+		fp = fopen("bids.txt", "a");
+		fprintf(fp, "%d %d %d\n", p1money, p2money, move);
+		fclose(fp);
 		if (position < 12)
 		{
 			printf("-51");
@@ -121,9 +121,9 @@ int main()
 	{
 		move = p2money - p1money;
 		position += move;
-		// fp = fopen("bids.txt", "a");
-		// fprintf(fp, "%d %d %d\n", p1bid, p2bid, move);
-		// fclose(fp);
+		fp = fopen("bids.txt", "a");
+		fprintf(fp, "%d %d %d\n", p1money, p2money, move);
+		fclose(fp);
 		if (position < 12)
 		{
 			printf("-61");

@@ -7,21 +7,18 @@ body {
   height: 60%;
   padding: 10%;
   text-align: center;
-  //border:1px solid red;
 }
 .page-a {
   width: 96%;
   height: 105%;
   padding: 2%;
   text-align: center;
-  //border:1px solid red;
 }
 .page-c {
   width: 96%;
   height: 55%;
   padding: 2%;
   text-align: center;
-  //border:1px solid red;
 }
 
 .code {
@@ -37,7 +34,6 @@ body {
   width: 100px;
   height: 50px;
   left: 0;
-  //top:60%;
   top: -20px;
   cursor: pointer;
   opacity: 0.9;
@@ -50,6 +46,10 @@ body {
 .bcenter {
   margin: 0 auto;
 }
+.page-name {
+  font-size: 100px;
+  margin-top: 130px;
+}
 .mid {
   font-size: 30px;
 }
@@ -59,7 +59,6 @@ body {
   height: 40px;
   cursor: pointer;
   background-color: black;
-  //box-shadow:5px 5px white;
   left: 35%;
   top: 20%;
   color: white;
@@ -88,7 +87,6 @@ body {
   background-color: rgb(243, 243, 243);
   width: 15%;
   height: 15%;
-  //box-shadow:2px 2px gray;
 }
 #opp-list {
   background-color: rgb(243, 243, 243);
@@ -172,7 +170,6 @@ body {
 }
 .small_shadow {
   text-shadow: 5px 5px 7px black;
-  //color:blue;
 }
 .center {
   position: relative;
@@ -213,7 +210,6 @@ td {
 }
 #generate {
   cursor: pointer;
-  //border:1px solid red;
   width: 200px;
   height: 100px;
   margin: 10px;

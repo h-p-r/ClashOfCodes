@@ -48,11 +48,17 @@
 			$p2Bid=(int)($splitLine[1]);
 			$bMove=(int)($splitLine[2]);
 			$bpos=$_SESSION['bpos'];
-			if($_SESSION['end']){
-				$p1Bid=0;
-				$p2Bid=0;
-				$bMove=0;
+			if($bpos>24) {
+				$bpos=24;
 			}
+			else if($bpos<0) {
+				$bpos=0;
+			}
+			// if($_SESSION['end']){
+			// 	$p1Bid=0;
+			// 	$p2Bid=0;
+			// 	$bMove=0;
+			// }
 			// echo $bpos.'<br>'.$_SESSION['i'];
 		?>
 
@@ -136,6 +142,10 @@ if($_SESSION['i']>$_SESSION['max']) {
 $_SESSION['p1Mon']=$p1Mon-$p1Bid;
 $_SESSION['p2Mon']=$p2Mon-$p2Bid;
 $_SESSION['bpos']=$bpos+$bMove;
+if($_SESSION['end']) {
+	$_SESSION['p1Mon']=0;
+	$_SESSION['p2Mon']=0;
+}
 ?>
 </div>
 

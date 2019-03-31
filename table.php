@@ -38,7 +38,7 @@
 	</style>
   </head>
   <body>
-  <a href="index.php"><span style="color:white; position:fixed; right:30; top:30; font-size:2em; font-family:cursive">Home</span></a>
+  <a href="index.php"><span style="color:white; position:fixed; right:30; top:30; font-size:2em;">Home</span></a>
     
 		<div class="container pos back" style="opacity:0.8">
 			<div class="well">

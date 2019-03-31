@@ -3,6 +3,9 @@ session_start();
 require_once('core.php');
 require_once('connect_algodb.php');
 require_once('countdown.php');
+if(isset($_SESSION['email'])){
+	redirect_to('index.php');
+}
 if(isset($_POST['rname']) &&
        isset($_POST['remail'])   &&
        isset($_POST['rpass'])      &&
@@ -13,14 +16,14 @@ if(isset($_POST['rname']) &&
 		$name = $_POST['rname'] ;
 		$pass=$_POST['rpass']     ;
 		$roll=$_POST['rroll'];
-		$pass = md5($pass);
+		$pass = hash('sha256',$pass);
 	
 		if(
 		   !empty($email) && 
 		   !empty($name) && 
 		   !empty($roll) && 
 		   !empty($pass)){
-				$pswd = md5($pass);
+				$pswd = hash('sha256',$pass);
 				$query = "SELECT `id` FROM `registered` WHERE `email` = '".mysqli_real_escape_string($mysqli,$email)."' ";
 				if(@$query_run = mysqli_query($mysqli,$query)){
 					if(mysqli_num_rows($query_run)==1){
@@ -68,7 +71,7 @@ if(isset($_POST['rname']) &&
 		  //echo 'hi';
         $loginemail = $_POST['lemail'];
         $lpswd = $_POST['lpass'];
-		$password_hash = md5($lpswd);
+		$password_hash = hash('sha256',$lpswd);
         
         if(!empty($loginemail) && !empty($lpswd)){
             
@@ -105,6 +108,7 @@ if(isset($_POST['rname']) &&
 </head>
 <body>
 <div class="page-b" id="login-page" style="display:flex;">
+<div class="page-name small_shadow" style="color:white">Clash of Codes</div>
 <div class="at-end">
 <span class="biggest bcenter small_shadow " style="color:white">Please Login/Register to Fight </span>
 <div id="login-reg">

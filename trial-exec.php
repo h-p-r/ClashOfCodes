@@ -66,7 +66,7 @@ if(isset($_SESSION['email'])&&isset($_SESSION['error'])){
 				$row=mysqli_fetch_assoc($Squiry);
 				$_SESSION['num']=$row['id'];
 				mkdir($cntnrName.$_SESSION['num']);
-				chmod($cntnrName.$_SESSION['num'],0757);
+				// chmod($cntnrName.$_SESSION['num']);
 				//echo $_SESSION['num'];
 				redirect_to('play.php');
 			}

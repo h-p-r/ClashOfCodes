@@ -6,8 +6,7 @@ session_start();
     function joining_mail($email,$name){	
 	$msg = "Dear ". $name."
 Thank you for joining our Event.
-Enjoy this Event and let us know.
--Anurag Giri";//write your message
+Enjoy this Event and let us know.";//write your message
 	$headers = "From:noreply";
 	$sentmail = mail ($email,"Thanks for joining us!!",$msg,$headers);
 }

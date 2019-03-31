@@ -4,6 +4,7 @@ session_start();
 require_once('connect_algodb.php');
 //require_once('countdown.php');
 require_once('core.php');
+$cntnrName="xcute/";
 if(isset($_POST['player2'])){
 		
 		$_SESSION['player2']=$_POST['player2'];
@@ -34,7 +35,7 @@ if(isset($_POST['player2'])){
 			if($Squiry=mysqli_query($mysqli,$quiry)){
 				$row=mysqli_fetch_assoc($Squiry);
 				$_SESSION['num']=$row['id'];
-				mkdir($_SESSION['num']);
+				mkdir($cntnrName.$_SESSION['num']);
 				//echo $_SESSION['num'];
 				redirect_to('play.php');
 			}
