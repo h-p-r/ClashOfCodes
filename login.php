@@ -48,8 +48,8 @@ if(isset($_POST['rname']) &&
 							if (mysqli_affected_rows($mysqli) == 1) { 
 							//If the Insert Query was successfull.
 							$message = " To activate your account, please click on this link:\n\n";
-							$message .= 'http://www.oopadai.com/algo/activate.php?email=' . urlencode($email).'&category=teacher&name='.urlencode($name).'&key='.urldecode($activation);
-							mail($email, 'Registration Confirmation', $message, 'From:noreply@codingClubNITD.com');
+							$message .= 'http://35.231.82.29/ClashOfCodes/activate.php?email=' . urlencode($email).'&category=teacher&name='.urlencode($name).'&key='.urldecode($activation);
+							mail($email, 'Registration Confirmation', $message,'From:CodingClub');
 							echo '<span class="php-msg"><div class="cr-php"></div>Success, Thanks For Registraion !!<br/><br/>Please click on the link sent to your email</span>';
 							
 							}else{
