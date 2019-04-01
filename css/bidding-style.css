@@ -40,6 +40,9 @@
 .active-step {
   height: 5px;
 }
+.win-step {
+  background: green;
+}
 .bottle {
   /* background: pink; */
   width: fit-content;

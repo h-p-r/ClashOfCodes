@@ -136,6 +136,7 @@ int main()
 		{
 			printf("-63");
 		}
+		return 0;
 	}
 
 	// else

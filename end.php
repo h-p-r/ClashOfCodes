@@ -105,6 +105,10 @@
 			<?php
 			if($i==(int)($nsteps/2)){
 				echo 'center-step ';
+			}else if($i==0){
+				echo 'win-step ';
+			}else if($i==24){
+				echo 'win-step ';
 			}
 			if($i==$bpos){
 				echo 'active-step ';

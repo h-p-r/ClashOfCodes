@@ -1,10 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
 int main()
 {
-    srand(time(NULL));
     int player, position, mybids[51], t, i, moves[51], money_remained = 100;
     scanf("%d", &player);
     scanf("%d", &position);
@@ -19,10 +15,11 @@ int main()
         scanf("%d", &moves[i]);
     }
 
-    int r2;
-    r2 = rand();
-    r2 = r2 % money_remained + 1;
-    printf("%d", r2);
+    // Write your code here
+    if (money_remained > 8)
+        printf("8");
+    else
+        printf("%d", money_remained - 1);
     return 0;
 }
 
