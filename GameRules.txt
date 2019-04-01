@@ -3,10 +3,10 @@ Basic Gameplay:
 
 1. There is a 1D axis in which player 1 is at x=0, player 2 is at x=24, and a bottle is at x=12.
 2. Both the players have 100 rupees at the start of the game.
-3. At each step both the players put a sealed bid (one player doesn’t know other player’s bid).
+3. At each step both the players put a sealed bid (one player doesn't know other player's bid).
 4. At each step the bottle will move towards the player who will put the higher bid. The amount of bid is deducted from each player at each step.
-5. Let player 1’s bid be X, and player 2’s bid be Y, such that X>Y, then the bottle will move A steps towards player 1, where A is the largest integer such that Y^A<=X.
-6. If both player put the same bid then bottle will stay at it’s place but the amount of bid will be deducted from both players.
+5. Let player 1's bid be X, and player 2's bid be Y, such that X>Y, then the bottle will move A steps towards player 1, where A is the largest integer such that Y^A<=X.
+6. If both player put the same bid then bottle will stay at it's place but the amount of bid will be deducted from both players.
 6. Your motive is to bring the bottle at your position.
 7. The minimum bid is 2 rupees.
 8. If the money remained with player 1 is 1, and if the player 2 has P rupees then the bottle will move P-1 number of steps towards player 2 and vice-versa.
@@ -19,33 +19,34 @@ Initial position:
 
 1 . . . . . . . . . . . B . . . . . . . . . . 2
 
-If 1’s bid is 24 and 2’s bid is 2, the the bottle will move 4 steps towards 1 (2^4<=24) and the positions will be :
+If 1's bid is 24 and 2's bid is 2, the the bottle will move 4 steps towards 1 (2^4<=24) and the positions will be :
 
 1 . . . . . . . B . . . . . . . . . . . . . . 2
 
-Now 1 has 76 rupees left and 2 has 98 rupees left, If 1’s bid is 7 and 2’s bid also 7 then bottle will stay at same position.
+Now 1 has 76 rupees left and 2 has 98 rupees left, If 1's bid is 7 and 2's bid also 7 then bottle will stay at same position.
 
 1 . . . . . . . B . . . . . . . . . . . . . . 2
 
-Now 1 has 69 rupees left and 2 has 91 rupees left, Now if 1’s bid is 2 and 2’s bid is 8 then bottle will move 3 steps towards 2
+Now 1 has 69 rupees left and 2 has 91 rupees left, Now if 1's bid is 2 and 2's bid is 8 then bottle will move 3 steps towards 2
 
 1 . . . . . . . . . . B . . . . . . . . . . . 2
 
 
+Programming Languages Allowed: C/C++
 
 Coding Part:
 
 1. Your submitted code will run at each step.
-2. Player 1’s position is at 0 and Player 2’s position is at 24.
+2. Player 1's position is at 0 and Player 2's position is at 24.
 3. The input provided will be in following format :
 
 Player number(1/2)
 Position of Bottle (B)
 Number of steps already played (t)
 Array of length t of your bids placed at each step
-Array of length t of moves of Bottle (+ve if moves towards player 2’s side else -ve)
+Array of length t of moves of Bottle (+ve if moves towards player 2's side else -ve)
 
-3. You should output a single integer (your bid) which must be less than amount you have. If you do not output or output an integer larger than your balance, other player will win.
+4. You should output a single integer (your bid) which must be less than amount you have. If you do not output or output an integer larger than your balance, other player will win.
 
 Example :
 Input:
@@ -62,10 +63,10 @@ Explanation:
 
 You are player 1.
 The distance of bottle from your position is 8. 4 steps are already being played. 
-Your first bid was 20 and the bottle moved 4 units towards you. (You can guess that other player’s move must be 2). 
-Your second bid was 4 and the bottle moved 1 unit away from you. (Other player’s bid must be greater than 4 and less than 16)
-Your third bid was 18 and the bottle moved 2 units towards you.  ( Other player’s bid must be 3 or 4)
-Your fourth bid was 7 and the bottle moved 1 unit away from you. (Other player’s bid must be greater than 7 and less than 49)
+Your first bid was 20 and the bottle moved 4 units towards you. (You can guess that other player's move must be 2). 
+Your second bid was 4 and the bottle moved 1 unit away from you. (Other player's bid must be greater than 4 and less than 16)
+Your third bid was 18 and the bottle moved 2 units towards you.  ( Other player's bid must be 3 or 4)
+Your fourth bid was 7 and the bottle moved 1 unit away from you. (Other player's bid must be greater than 7 and less than 49)
 
 Now you should output one integer (your bid) which must be less than or equal to money you have left (100 - 20 - 4 - 18 - 7 = 51).
 

@@ -64,7 +64,7 @@ if(isset($_POST['code'])){
 
  <a href="table.php"><span style="color:white; position:fixed; right:7%;top:25%; font-size:1.5em; " title="Gameboard">Click To See Gameboard</span></a>
 <div class="page-b" id="f-page">
-<div style="position : fixed; bottom:2%;color :white; margin:0;padding:0;">
+<div style="position : fixed; bottom:200px;color :white; margin:0;padding:0;">
 
 Download<a href="GameRules.txt" style="color :white; " download> Game problem Statement</a><br><br>
 Get the<a href="codes/sample.cpp" style="color :white;" download> Sample code Here!!</a>
@@ -81,7 +81,7 @@ Get the<a href="codes/sample.cpp" style="color :white;" download> Sample code He
 
 <a href="logout.inc.php" title="Logout"><img style="position:fixed; top:85; right:20" src="img/logout.png"></a>
 <div style="position:fixed; top:110; right:120; font-size: 2em; color: white;">Welcome, <?php echo $_SESSION['name'];?></div>
-<span class="biggest small_shadow" style="color:white;">Please Submit your C++ code here... </span><br><br>
+<span class="biggest small_shadow" style="color:white;">Please Submit your C/C++ code here... </span><br><br>
 <form method="post" action="index.php" >
 <textarea class="code" name="code" placeholder="Your C++ code"></textarea>	
 <input type="submit"  class="btn btn-primary sub_button" value="Submit Code" />
