@@ -75,8 +75,8 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
 	if(empty($error)){
         // $output=shell_exec("./$num/om < $moniter_input");
         $output='12'."\n".'0';
-        file_put_contents($input1,$output);
-        file_put_contents($input2,$output);
+        file_put_contents($input1,'1'."\n".$output);
+        file_put_contents($input2,'2'."\n".$output);
 
 
 		$p1_e=0;$p2_e=0;
