@@ -70,7 +70,7 @@ $move=0;
 //save output to input1
 // file_put_contents($moniter_input,"-256");
 // shell_exec("cd $num");
-shell_exec("chroot /opt/lampp/htdocs/ClashOfCodes/xcute /bin/bash");
+// chroot($cntnrName);
 $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
 	if(empty($error)){
         // $output=shell_exec("./$num/om < $moniter_input");
