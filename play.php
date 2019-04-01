@@ -116,14 +116,14 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
 			    // if($turn=='1')
                 // {
                     $output1=shell_exec("./$num/op1 < $input1");
-                    if(empty($output1)){
+                    if($output1!='0' && empty($output1)){
                     //no output
                         $error_msg="p1 didn't made move";
                         $winner = $p2_name;
                         break;
                     }
                     $output2=shell_exec("./$num/op2 < $input2");
-                    if(empty($output2)){
+                    if($output1!='0' && empty($output2)){
                     //no output
                         $error_msg="p2 didn't made move";
                         $winner = $p1_name;
@@ -256,6 +256,6 @@ $uid=$_SESSION['num'];
 
 echo '<span class="win-disp"><br>player '.$_SESSION['winner'].' Won the Game<a href="trial-exec.php" style="color:rgb(242, 9, 25);"><b> Wanna Play with other</b></span>';
 //for animation
-redirect_to('end.php');
+// redirect_to('end.php');
 }
 ?>
