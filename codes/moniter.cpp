@@ -41,13 +41,13 @@ int main()
 
 	scanf("%d %d", &p1bid, &p2bid);
 
-	if (p1bid > p1money)
+	if (p1bid > p1money || p1bid <= 1)
 	{
 		printf("-1"); //p1 made wrong move
 		return 0;
 	}
 
-	if (p2bid > p2money)
+	if (p2bid > p2money || p2bid <= 1)
 	{
 		printf("-2"); //p2 made wrong move
 		return 0;
@@ -58,7 +58,7 @@ int main()
 		move = log(p1bid) / log(p2bid);
 		move = -move;
 		fp = fopen("bids.txt", "a");
-		fprintf(fp, "%d %d %d\n", p1bid, p2bid, move);
+		fprintf(fp, "%d %d %d \n", p1bid, p2bid, move);
 		fclose(fp);
 		if (position + move <= 0)
 		{
@@ -71,7 +71,7 @@ int main()
 	{
 		move = log(p2bid) / log(p1bid);
 		fp = fopen("bids.txt", "a");
-		fprintf(fp, "%d %d %d\n", p1bid, p2bid, move);
+		fprintf(fp, "%d %d %d \n", p1bid, p2bid, move);
 		fclose(fp);
 		if (position + move >= 24)
 		{
@@ -84,7 +84,7 @@ int main()
 	{
 		move = 0;
 		fp = fopen("bids.txt", "a");
-		fprintf(fp, "%d %d %d\n", p1bid, p2bid, move);
+		fprintf(fp, "%d %d %d \n", p1bid, p2bid, move);
 		fclose(fp);
 	}
 
@@ -98,7 +98,7 @@ int main()
 		move = p2money - p1money;
 		position += move;
 		fp = fopen("bids.txt", "a");
-		fprintf(fp, "%d %d %d\n", p1money, p2money, move);
+		fprintf(fp, "%d %d %d \n", p1money, p2money, move);
 		fclose(fp);
 		if (position < 12)
 		{
@@ -122,7 +122,7 @@ int main()
 		move = p2money - p1money;
 		position += move;
 		fp = fopen("bids.txt", "a");
-		fprintf(fp, "%d %d %d\n", p1money, p2money, move);
+		fprintf(fp, "%d %d %d \n", p1money, p2money, move);
 		fclose(fp);
 		if (position < 12)
 		{
@@ -152,6 +152,6 @@ int main()
 	// 		printf("%d ",mat[2][i]);
 	// 	}
 	// }
-	printf("0");
+	printf("10000");
 	return 0;
 }

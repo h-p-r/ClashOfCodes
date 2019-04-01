@@ -149,7 +149,6 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
 
                         $outputm=shell_exec("cd $num; ./om < moniter_input.txt");
                         if(!empty($outputm)){
-
                             sscanf($outputm,"%d",$type);
                             if($type==-1){
                             //wrong move
@@ -203,18 +202,19 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
                             $newInp22='';
                             $bpos=12;
                             for ($i=0;$i<$rlen;$i++) {
-                                $splitLine=explode(' ', $lines[$i]);
+                                $splitLine=explode(' ', $bidsLines[$i]);
                                 $newInp11=$newInp11.$splitLine[0].' ';
                                 $newInp12=$newInp12.$splitLine[2].' ';
 
                                 $newInp21=$newInp21.$splitLine[1].' ';
                                 $newInp22=$newInp22.$splitLine[2].' ';
+
                                 $bmove=(int)($splitLine[2]);
                                 $bpos+=$bmove;
                             }
 
-                            file_put_contents($input1,'1'."\n".$bpos."\n".$rlen."\n".$newInp11."\n".$newInp12);
-                            file_put_contents($input2,'2'."\n".$bpos."\n".$rlen."\n".$newInp21."\n".$newInp22);
+                            file_put_contents($input1,'1'."\n".$bpos."\n".$rlen."\n".$newInp11."\n".$newInp12."\n");
+                            file_put_contents($input2,'2'."\n".$bpos."\n".$rlen."\n".$newInp21."\n".$newInp22."\n");
                             // also remove the initial number from output
                        
                         }
