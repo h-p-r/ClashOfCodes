@@ -26,11 +26,25 @@ int main()
 // #include <stdio.h>
 // int main()
 // {
-//     int x;
+//     int x, i = 0, j = 0;
+//     int mat[55][3];
 //     FILE *fp;
-//     fp = fopen("/temp.txt", "r");
-//     fscanf(fp, "%d", &x);
-//     printf("%d", x);
+//     fp = fopen("bids.txt", "r");
+//     while (fscanf(fp, "%d", &mat[i][j]) != EOF) // take inputs from the files
+//     {
+
+//         j++;
+//         if (j == 3)
+//         {
+//             i++;
+//             j = 0;
+//         }
+//     }
+//     fclose(fp);
+//     if (i == 0)
+//         printf("3");
+//     else
+//         printf("%d", mat[i - 1][2]);
 //     return 0;
 // }
 

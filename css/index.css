@@ -193,18 +193,39 @@ td {
   position: fixed;
   width: 100%;
   left: 0;
-  height: 85px;
+  height: 110px;
   bottom: 0;
   background-color: purple;
   opacity: 0.8;
   color: white;
   text-align: center;
 }
+.log-cntnr {
+  margin-top: -50px;
+  margin-bottom: 140px;
+}
+.logs-form {
+  margin-block-end: 0;
+}
+.log-btn {
+  outline: none;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: inherit;
+  cursor: pointer;
+}
+.log-title {
+  font-size: 30px;
+  font-weight: 600;
+}
 .print {
   text-align: center;
   padding-left: 30%;
 }
-
+.print-cen {
+  text-align: center;
+}
 .cross {
   background-color: black;
 }

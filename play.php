@@ -45,18 +45,20 @@ $p1_code=$my_file1;
 $p2_code=$my_file2;
 $input1="$num/input1.txt";
 $input2="$num/input2.txt";
+$logs="$num/logs.txt";
 $bidsFile="$num/bids.txt";
 $moniter_input="$num/moniter_input.txt";
 make_file('',$input1);
 make_file('',$input2);
+make_file('',$logs);
 make_file('',$moniter_input);
 // $file_contents = file_get_contents($moniter_file);
 // make_file($file_contents ,$moniter);
 make_file('',$bidsFile);
-chmod($input1,0766);
-chmod($input2,0766);
-chmod($moniter_input,0766);
-chmod($bidsFile,0766);
+// chmod($input1,0766);
+// chmod($input2,0766);
+// chmod($moniter_input,0766);
+// chmod($bidsFile,0766);
 // $file_contents = file_get_contents($my_file1);
 // make_file($file_contents ,$p1_code);
 // $file_contents = file_get_contents($my_file2);
@@ -108,7 +110,7 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
             $p1_box=0;
             $p2_box=0;
 
-            $turn='1';
+            $brk=0;
 			                                                    //give input1 to p1_code
                                                             //append output and input1-> moniter_input
                                                         //get output and give it to input2 if number end here
@@ -118,14 +120,14 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
                     $output1=shell_exec("./$num/op1 < $input1");
                     if($output1!='0' && empty($output1)){
                     //no output
-                        $error_msg="p1 didn't made move";
+                        $error_msg="p1 didn't made a move";
                         $winner = $p2_name;
                         break;
                     }
                     $output2=shell_exec("./$num/op2 < $input2");
                     if($output1!='0' && empty($output2)){
                     //no output
-                        $error_msg="p2 didn't made move";
+                        $error_msg="p2 didn't made a move";
                         $winner = $p1_name;
                         break;
                     }
@@ -152,46 +154,57 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
                             sscanf($outputm,"%d",$type);
                             if($type==-1){
                             //wrong move
-                                $error_msg="p1 made wrong move";
+                                $error_msg="p1 made a wrong move";
                                 $winner = $p2_name;
+                                $brk=1;
+                                file_put_contents($logs,$p1_name.' bids '.$output1."\n".$p2_name.' bids '.$output2."\n", FILE_APPEND);
                                 break;
                             }else if($type==-2){
                             //wrong move
-                                $error_msg="p2 made wrong move";
+                                $error_msg="p2 made a wrong move";
                                 $winner = $p1_name;
+                                $brk=1;
+                                file_put_contents($logs,$p1_name.' bids '.$output1."\n".$p2_name.' bids '.$output2."\n", FILE_APPEND);
                                 break;
                             }else if($type==-3){
                                 // Player 1 won
                                 $winner = $p1_name;
-                                break;
+                                $brk=1;
+                                // break;
                             }else if($type==-4){
                                 // Player 2 won
                                 $winner = $p2_name;
-                                break;
+                                $brk=1;
+                                // break;
                             }else if($type==-51){
                                 // Player 1 won
                                 $winner = $p1_name;
-                                break;
+                                $brk=1;
+                                // break;
                             }else if($type==-52){
                                 // Player 2 won
                                 $winner = $p2_name;
-                                break;
+                                $brk=1;
+                                // break;
                             }else if($type==-53){
                                 // tie
                                 $winner = '0';
-                                break;
+                                // break;
                             }else if($type==-61){
                                 // Player 1 won
                                 $winner = $p1_name;
-                                break;
+                                $brk=1;
+                                // break;
                             }else if($type==-62){
                                 // Player 2 won
                                 $winner = $p2_name;
-                                break;
+                                $brk=1;
+                                // break;
                             }else if($type==-63){
                                 // tie
                                 $winner = '0';
-                                break;
+                                $brk=1;
+                                // break;
                             }
 
                             $bidsLines = file($bidsFile);
@@ -212,9 +225,16 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
                                 $bmove=(int)($splitLine[2]);
                                 $bpos+=$bmove;
                             }
-
+                            $logBMove=(int)(explode(' ', $bidsLines[$rlen-1])[2]);
+                            if($brk) {
+                                $o1=(int)(explode(' ', $bidsLines[$rlen-1])[0]);
+                                $o2=(int)(explode(' ', $bidsLines[$rlen-1])[1]);
+                                file_put_contents($logs,$p1_name.' bids '.$o1."\n".$p2_name.' bids '.$o2."\n".'Bottle moved '.$logBMove."\n", FILE_APPEND);
+                                break;
+                            }
                             file_put_contents($input1,'1'."\n".$bpos."\n".$rlen."\n".$newInp11."\n".$newInp12."\n");
                             file_put_contents($input2,'2'."\n".$bpos."\n".$rlen."\n".$newInp21."\n".$newInp22."\n");
+                            file_put_contents($logs,$p1_name.' bids '.$output1."\n".$p2_name.' bids '.$output2."\n".'Bottle moved '.$logBMove."\n", FILE_APPEND);
                             // also remove the initial number from output
                             
                         }
@@ -228,13 +248,16 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
     }
     else{
 		//echo $error;
-		$error_msg="$error Internal error in moniter";
+        $error_msg="$error Internal error in moniter";
+        file_put_contents($logs,$error_msg."\n", FILE_APPEND);
     }
     if($winner=="Match Draw") {
         echo ' '.$error_msg.' '.$winner;
+        file_put_contents($logs,$error_msg.' '.$winner."\n", FILE_APPEND);
     }
     else {
         echo ' '.$error_msg.' '.$winner.' Wins';
+        file_put_contents($logs,$error_msg.' '.$winner.' Wins'."\n", FILE_APPEND);
     }
 // $animFile = "anim.txt";
 $lines = file($bidsFile); //file in to an array

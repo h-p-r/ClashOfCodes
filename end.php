@@ -20,6 +20,12 @@
 				padding:2%;
 			}
 	</style>
+	<script>
+		if ( window.history.replaceState ) {
+			window.history.replaceState( null, null, window.location.href );
+		}
+		</script>
+	
 </head>
 <body>
 <?php
@@ -30,6 +36,7 @@
 			//require_once('countdown.php');
 			require_once('core.php');
 			$_SESSION['end']=0;
+			$_SESSION['logs']=0;
 			$rid=$_SESSION['i']++;
 			if($_SESSION['i']>$_SESSION['max']){
 				$rid=$_SESSION['max']-1;
@@ -39,20 +46,25 @@
 			$num=$_SESSION['num'];
 			$num=$cntnrName.$num;
 			$animFile="$num/bids.txt";
-			$lines = file($animFile);//file in to an array
-			$splitLine=explode(' ', $lines[$rid]);
-			$nsteps=25;
 			$p1Mon=$_SESSION['p1Mon'];
 			$p2Mon=$_SESSION['p2Mon'];
-			$p1Bid=(int)($splitLine[0]);
-			$p2Bid=(int)($splitLine[1]);
-			$bMove=(int)($splitLine[2]);
 			$bpos=$_SESSION['bpos'];
-			if($bpos>24) {
-				$bpos=24;
-			}
-			else if($bpos<0) {
-				$bpos=0;
+			$p1Bid=0;
+			$p2Bid=0;
+			$nsteps=25;
+			if($_SESSION['max']>0) {
+
+				$lines = file($animFile);//file in to an array
+				$splitLine=explode(' ', $lines[$rid]);
+				$p1Bid=(int)($splitLine[0]);
+				$p2Bid=(int)($splitLine[1]);
+				$bMove=(int)($splitLine[2]);
+				if($bpos>24) {
+					$bpos=24;
+				}
+				else if($bpos<0) {
+					$bpos=0;
+				}
 			}
 			// if($_SESSION['end']){
 			// 	$p1Bid=0;
@@ -128,7 +140,7 @@ echo '
 
 echo '
 	<script>
-		var timeout=setTimeout("location.reload(true);",1000);
+		var timeout=setTimeout("location.reload(true);",1500);
 	</script>
 ';
 // }
@@ -145,6 +157,7 @@ if($_SESSION['i']>$_SESSION['max']) {
 
 $_SESSION['p1Mon']=$p1Mon-$p1Bid;
 $_SESSION['p2Mon']=$p2Mon-$p2Bid;
+if($_SESSION['end']) { $bMove=0; }
 $_SESSION['bpos']=$bpos+$bMove;
 if($_SESSION['end']) {
 	$_SESSION['p1Mon']=0;
@@ -154,12 +167,40 @@ if($_SESSION['end']) {
 </div>
 
 <?php 
+// for logs
+
+function showLogs()
+	{
+		$_SESSION['logs']=1;
+	}
+
+	if(array_key_exists('logs',$_POST)){
+		showLogs();
+	}
+
+if($_SESSION['logs']) {
+	$logFile="$num/logs.txt";
+	$lines = file($logFile); //file in to an array
+	echo '
+	<div class="log-cntnr">
+	<div class="log-title print-cen">Match Logs</div>';
+	for($i=0;$i<count($lines);$i++) {
+		if($i%3==0) echo '<hr>';
+		echo '<div class="print-cen">'.$lines[$i].'</div>';
+	}
+	echo '</div>';
+}
+
+
+?>
+
+<?php 
 if($_SESSION['end']) {
 	if ($_SESSION['winner']=="Match Draw") {
-					echo '<span class="win-disp"><br>'.$_SESSION['errorMsg'].'<br>'.$_SESSION['winner'].' <a href="trial-exec.php" style="color:rgb(10, 200, 25);"><b> Wanna Play with other</b></span>';	
+					echo '<span class="win-disp"><br>'.$_SESSION['errorMsg'].'<br><form class="logs-form" action="" method="post"><input class="log-btn" type="submit" name="logs" value="Match Logs" /></form><b>'.$_SESSION['winner'].'</b> <a href="trial-exec.php" style="color:rgb(10, 200, 25);"><b> Wanna Play with other</b></a><br><a href="index.php" style="color:white;"><b>HOME</b></a></span>';	
 				}
 				else {
-					echo '<span class="win-disp"><br>'.$_SESSION['errorMsg'].'<br>'.$_SESSION['winner'].' Won the Game<a href="trial-exec.php" style="color:rgb(10, 200, 25);"><b> Wanna Play with other</b></a><br><a href="index.php" style="color:white;"><b>HOME</b></a></span>';
+					echo '<span class="win-disp"><br>'.$_SESSION['errorMsg'].'<br><form class="logs-form" action="" method="post"><input class="log-btn" type="submit" name="logs" value="Match Logs" /></form>'.$_SESSION['winner'].' Won the Game<a href="trial-exec.php" style="color:rgb(10, 200, 25);"><b> Wanna Play with other</b></a><br><a href="index.php" style="color:white;"><b>HOME</b></a></span>';
 
 				}
 }
