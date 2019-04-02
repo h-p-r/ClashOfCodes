@@ -34,22 +34,24 @@ int main()
 //     int x, i = 0, j = 0;
 //     int mat[55][3];
 //     FILE *fp;
-//     fp = fopen("bids.txt", "r");
-//     while (fscanf(fp, "%d", &mat[i][j]) != EOF) // take inputs from the files
-//     {
+//     fp = fopen("/temp.txt", "r");
+//     // while (fscanf(fp, "%d", &mat[i][j]) != EOF) // take inputs from the files
+//     // {
 
-//         j++;
-//         if (j == 3)
-//         {
-//             i++;
-//             j = 0;
-//         }
-//     }
+//     //     j++;
+//     //     if (j == 3)
+//     //     {
+//     //         i++;
+//     //         j = 0;
+//     //     }
+//     // }
+//     fscanf(fp, "%d", &x);
 //     fclose(fp);
-//     if (i == 0)
-//         printf("3");
-//     else
-//         printf("%d", mat[i - 1][2]);
+//     printf("%d", x);
+//     // if (i == 0)
+//     // printf("3");
+//     // else
+//     // printf("%d", mat[i - 1][2]);
 //     return 0;
 // }
 
