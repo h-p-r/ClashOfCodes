@@ -7,6 +7,6 @@ int main()
   srand(time(NULL));
   int a = rand() % 20 + 1;
   // printf("%d", a);
-  printf("9");
+  printf("2");
   return 0;
 }

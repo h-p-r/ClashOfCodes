@@ -140,7 +140,7 @@ echo '
 
 echo '
 	<script>
-		var timeout=setTimeout("location.reload(true);",1500);
+		var timeout=setTimeout("location.reload(true);",500);
 	</script>
 ';
 // }

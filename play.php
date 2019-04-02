@@ -189,6 +189,7 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
                             }else if($type==-53){
                                 // tie
                                 $winner = '0';
+                                $brk=1;
                                 // break;
                             }else if($type==-61){
                                 // Player 1 won

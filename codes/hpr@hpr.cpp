@@ -16,10 +16,15 @@ int main()
     }
 
     // Write your code here
-    if (money_remained > 8)
-        printf("8");
-    else
-        printf("%d", money_remained - 1);
+    while (1)
+    {
+        printf("2");
+    }
+
+    // if (money_remained > 8)
+    //     printf("8");
+    // else
+    //     printf("%d", money_remained - 1);
     return 0;
 }
 
