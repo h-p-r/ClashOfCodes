@@ -238,6 +238,7 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
                             file_put_contents($input1,'1'."\n".$bpos."\n".$rlen."\n".$newInp11."\n".$newInp12."\n");
                             file_put_contents($input2,'2'."\n".$bpos."\n".$rlen."\n".$newInp21."\n".$newInp22."\n");
                             file_put_contents($logs,$p1_name.' bids '.$output1."\n".$p2_name.' bids '.$output2."\n".'Bottle moved '.$logBMove."\n", FILE_APPEND);
+                            
                             if($brk==2){
                                 break;
                             }
