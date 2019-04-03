@@ -46,7 +46,7 @@ Number of steps already played (t)
 Array of length t of your bids placed at each step
 Array of length t of moves of Bottle (+ve if moves towards player 2's side else -ve)
 
-4. You should output a single integer (your bid) which must be less than amount you have. If you do not output or output an integer larger than your balance, other player will win.
+4. You should output a single integer (your bid) which must be less than or equal to the amount you have. If you do not output or output an integer larger than your balance, other player will win.
 
 Example :
 Input:
