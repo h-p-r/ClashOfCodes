@@ -169,12 +169,12 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
                             }else if($type==-3){
                                 // Player 1 won
                                 $winner = $p1_name;
-                                $brk=1;
+                                $brk=2;
                                 // break;
                             }else if($type==-4){
                                 // Player 2 won
                                 $winner = $p2_name;
-                                $brk=1;
+                                $brk=2;
                                 // break;
                             }else if($type==-51){
                                 // Player 1 won
@@ -227,7 +227,9 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
                                 $bpos+=$bmove;
                             }
                             $logBMove=(int)(explode(' ', $bidsLines[$rlen-1])[2]);
-                            if($brk) {
+                            if($brk==1) {
+                                $logBMovePrev=(int)(explode(' ', $bidsLines[$rlen-2])[2]);
+                                file_put_contents($logs,$p1_name.' bids '.$output1."\n".$p2_name.' bids '.$output2."\n".'Bottle moved '.$logBMovePrev."\n", FILE_APPEND);
                                 $o1=(int)(explode(' ', $bidsLines[$rlen-1])[0]);
                                 $o2=(int)(explode(' ', $bidsLines[$rlen-1])[1]);
                                 file_put_contents($logs,$p1_name.' bids '.$o1."\n".$p2_name.' bids '.$o2."\n".'Bottle moved '.$logBMove."\n", FILE_APPEND);
@@ -236,7 +238,9 @@ $error=shell_exec("g++ -o $num/om $moniter_file   2>&1");
                             file_put_contents($input1,'1'."\n".$bpos."\n".$rlen."\n".$newInp11."\n".$newInp12."\n");
                             file_put_contents($input2,'2'."\n".$bpos."\n".$rlen."\n".$newInp21."\n".$newInp22."\n");
                             file_put_contents($logs,$p1_name.' bids '.$output1."\n".$p2_name.' bids '.$output2."\n".'Bottle moved '.$logBMove."\n", FILE_APPEND);
-                            
+                            if($brk==2){
+                                break;
+                            }
                         }
 		
 			}
