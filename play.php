@@ -41,8 +41,8 @@ $my_file2="codes/$userid2".".cpp";
 $moniter_file="codes/moniter.cpp";
 //actual files
 $moniter="$num/moniter.cpp";
-$p1_code=$my_file1;
-$p2_code=$my_file2;
+$p1_code="$num/p1.cpp";
+$p2_code="$num/p2.cpp";
 $input1="$num/input1.txt";
 $input2="$num/input2.txt";
 $logs="$num/logs.txt";
@@ -59,10 +59,10 @@ make_file('',$bidsFile);
 // chmod($input2,0766);
 // chmod($moniter_input,0766);
 // chmod($bidsFile,0766);
-// $file_contents = file_get_contents($my_file1);
-// make_file($file_contents ,$p1_code);
-// $file_contents = file_get_contents($my_file2);
-// make_file($file_contents ,$p2_code);
+$file_contents = file_get_contents($my_file1);
+make_file($file_contents ,$p1_code);
+$file_contents = file_get_contents($my_file2);
+make_file($file_contents ,$p2_code);
 // $file_contents = file_get_contents($moniter_file);
 // make_file($file_contents ,$moniter);
 
