@@ -109,6 +109,9 @@ if(isset($_POST['rname']) &&
 <body>
 <div class="page-b" id="login-page" style="display:flex;">
 <div class="page-name small_shadow" style="color:white">Clash of Codes</div>
+<!-- 
+
+
 <div class="at-end">
 <span class="biggest bcenter small_shadow " style="color:white">Please Login/Register to Fight </span>
 <div id="login-reg">
@@ -137,6 +140,7 @@ if(isset($_POST['rname']) &&
 </div>
 </div>
 </div>
+ -->
 </div>
 <script src="js/jquery.js"></script>
 <script >
