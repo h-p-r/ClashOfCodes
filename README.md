@@ -8,7 +8,6 @@ If you want to host any coding competition use my work to host on your server or
 if you are a developer you can use this code for other works . But it shold be notified to me before using it.
 If you find any difficulties in implementing this project you can always drop me a mail.
 I will do my best to help you.
---- My email id( anuragmgiri@gmail.com ).
 
 Interface works as
 
